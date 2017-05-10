@@ -1,0 +1,73 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.background{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.background .image{
+    width: 100%;
+    background-image: url(images/background.jpg);
+    background-size: 188% auto;
+    height: 1000px;
+    background-position-x: -773px;
+    background-position-y: -146px;
+}
+
+.background .overlay{
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    height: 1000px;
+    opacity: 0.6;
+}
+
+header .logo{
+    margin-left: 34px;
+    margin-top: 3px;
+    width: 171px;
+}
+
+header button{
+    float: right;
+    margin-right: 33px;
+    margin-top: 19px;
+    width: 78px;
+    height: 31px;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    background-color: #e50914;
+}
+
+.main{
+    margin-top: 304px;
+    margin-left: 37px;
+}
+
+.main .title{
+    font-size: 64px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.main .subtitle{
+    font-size: 22px;
+    margin: 14px 2px;
+    color: white;
+}
+
+.main button{
+    width: 263px;
+    height: 48px;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    background-color: #e50914;
+    font-size: 16px;
+}

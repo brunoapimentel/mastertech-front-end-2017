@@ -1,0 +1,110 @@
+html{
+    font-family: sans-serif;
+}
+
+body{
+    margin: 0 10%;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+h1, h2, h3, h4{
+    color: #282;
+}
+
+h1{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 50px;
+}
+
+h2{
+    border-bottom: 1px solid #282;
+    padding: 14px 14px;
+}
+
+p{
+    color: #444;
+    line-height: 23px;
+    text-align: justify;
+}
+
+img{
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 8px #666;
+}
+
+input, textarea{
+    width: 97%;
+    padding: 0 15px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #AAA;
+    resize: none;
+}
+
+input{
+    height: 45px;
+}
+
+input[type=submit]{
+    width: 100%;
+    background-color: #5a5;
+    border: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+section{
+    margin-top: 30px;
+}
+
+nav{
+    width: 80%;
+    background-color: #5a5;
+    position: fixed;
+    top: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+ul{
+    list-style-type: none;
+    display: block;
+    margin: 0;
+}
+
+li{
+    float: left;
+    padding: 10px 100px;
+}
+
+.character-block{
+    width: 48%;
+    float: left;
+}
+
+.character-block.margin{
+    margin-right: 4%;
+}
+
+.clear{
+    clear: both;
+}
+
+.character-block .title{
+    font-size: 20px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #444;
+  font-family: sans-serif;
+}

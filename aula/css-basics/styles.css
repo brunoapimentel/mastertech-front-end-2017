@@ -1,0 +1,67 @@
+body{
+    margin: 0 10%;
+    font-family: sans-serif;
+}
+
+h1{
+    margin: 0;
+    font-size: 50px;
+    color: #ffa500;
+}
+
+h2{
+    margin-top: 10px;
+    color: #ffa500;
+}
+
+p{
+    text-align: justify;
+    line-height: 27px;
+}
+
+img{
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 0 11px #777;
+}
+
+input{
+    height: 40px;
+}
+
+input, textarea{
+    border: 0;
+    background-color: #eee;
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding-left: 2%;
+}
+
+button{
+    width: 100%;
+    height: 40px;
+    border: 0;
+    background-color: #ffa500;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+/* RAÇAS */
+#breeds .title{
+    font-size: 26px;
+    color: #ffa500;
+    font-weight: bold;
+}
+
+#breeds .column{
+    width: 45%;
+    float: left;
+}
+
+#breeds .column.padding-right{
+    padding-right: 10%;
+}

@@ -1,0 +1,115 @@
+<style>
+    body{
+        margin: 0;
+        padding-top: 50px;
+        font-family: sans-serif;
+    }
+
+    section{
+        width: 100%;
+        max-width: 1000px;
+        display: block;
+        margin: auto;
+        color: #444;
+    }
+
+    p{
+        line-height: 22px;
+        text-align: justify;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    button{
+        background-color: #44f;
+        color: white;
+        padding: 7px 10px;
+        border: 0;
+    }
+
+    .modal{
+        width: 50%;
+        border: 1px solid #aaa;
+        border-radius: 20px;
+        position: absolute;
+        top: 10%;
+        background-color: white;
+        left: 0;
+        margin-left: 25%;
+        padding: 35px 50px;
+        opacity: 0;
+    }
+
+    .modal .header{
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .modal button{
+        float: right;
+        background-color: red;
+    }
+
+    .modal.active{
+      opacity: 1;
+    }
+
+    .fade{
+      transition-timing-function: ease;
+      transition: 0.5s;
+    }
+</style>
+
+<section onclick="toggleModal()">
+    <h2>Modal</h2>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat, nunc ac lacinia malesuada, tortor est hendrerit quam, quis faucibus augue enim sit amet diam. Pellentesque in nisl augue. Pellentesque fringilla pulvinar nisl, a porta ligula dapibus et. Nullam sit amet pellentesque odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel eros fermentum, faucibus nulla quis, tincidunt arcu. Sed et malesuada quam. In sodales velit lectus.
+    </p>
+    <p>
+        Morbi ullamcorper metus a felis luctus cursus. Nunc risus ligula, gravida a finibus a, ornare id nisi. Sed id feugiat massa, et tristique ex. Integer sit amet dolor a enim aliquet vehicula sed eget est. Donec vel mi rhoncus, gravida enim in, feugiat nunc. In eget erat mi. Vestibulum ullamcorper ligula id porta porta. Quisque bibendum velit vitae nisl aliquam, porta faucibus magna feugiat. Duis tincidunt est et arcu pretium, nec blandit massa ornare. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed vulputate massa sit amet diam vulputate aliquam. Nunc dui urna, fermentum eleifend convallis ut, suscipit quis ex. Quisque malesuada tellus vel ligula luctus efficitur. Maecenas facilisis convallis orci.
+    </p>
+    <p>
+        Phasellus vitae tincidunt augue. Maecenas elementum porta rutrum. Morbi libero ex, fermentum non purus ut, elementum tincidunt quam. Vivamus non faucibus sem, iaculis volutpat dui. Pellentesque vitae accumsan tortor. In tempor felis urna, vel viverra metus dapibus sed. Nunc ligula leo, ullamcorper sit amet eros id, condimentum tempus mauris.
+    </p>
+    <p>
+        Fusce ac enim sed nunc mollis viverra. In tellus urna, fringilla vel scelerisque eu, pulvinar vitae nunc. Pellentesque cursus eros imperdiet massa ornare sodales eu vitae mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus, eros at accumsan egestas, ligula lectus fermentum felis, eget gravida lacus justo dignissim est. Proin convallis risus ipsum, quis tempus lorem aliquet et. Sed tempus eu nisi vitae consequat. Nulla varius est felis. Nunc posuere justo tortor, fermentum vehicula purus vestibulum in. In feugiat mi lectus. Nam tempus et mi vel accumsan. Etiam at tincidunt arcu. Nulla id elementum nunc, nec viverra velit. Morbi tincidunt augue augue, vitae euismod magna facilisis vitae.
+    </p>
+    <p>
+        Cras vel neque nibh. Nam urna sapien, mollis eu purus non, volutpat tristique sem. Phasellus sit amet orci et libero dictum vulputate eu at velit. Donec ac maximus arcu. Quisque dolor diam, varius vel imperdiet quis, posuere at nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris vehicula purus et hendrerit lacinia. Praesent mauris lacus, varius tempus urna eget, laoreet tempus neque. Aenean vulputate ultricies hendrerit. Suspendisse vestibulum odio non risus faucibus suscipit sed ut ipsum. Quisque nec tortor a nulla dictum egestas.
+    </p>
+
+    <button>Mostrar</button>
+</section>
+
+<div class="modal fade">
+    <div class="header">
+        Esse é um modal!
+    </div>
+    <div class="body">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat, nunc ac lacinia malesuada, tortor est hendrerit quam, quis faucibus augue enim sit amet diam. Pellentesque in nisl augue
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat, nunc ac lacinia malesuada, tortor est hendrerit quam, quis faucibus augue enim sit amet diam. Pellentesque in nisl augue
+        </p>
+
+        <button onclick="toggleModal()">Fechar</button>
+    </div>
+</div>
+
+<script>
+    var modal = document.querySelector('.modal');
+
+    function toggleModal(){
+        if(modal.classList.contains('active')){
+            modal.classList.remove('active');
+        }else{
+            modal.classList.add('active');
+        }
+    }
+</script>

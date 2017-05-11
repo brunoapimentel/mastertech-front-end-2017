@@ -1,0 +1,61 @@
+<style>
+    body{
+        margin: 0;
+        padding-top: 50px;
+        font-family: sans-serif;
+    }
+
+    section{
+        width: 100%;
+        max-width: 1000px;
+        display: block;
+        margin: auto;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    input, button{
+        width: 100%;
+        height: 40px;
+        margin-bottom: 10px;
+        padding-left: 5px;
+        border-radius: 5px;
+        border: 1px solid #aaa;
+
+        font-size: 16px;
+    }
+
+    .error{
+        border: 1px solid red;
+    }
+</style>
+
+<section>
+    <h2>Validação de Formulário</h2>
+
+    <form>
+        <input type="text" placeholder="Nome">
+        <input type="text" placeholder="E-mail">
+        <input type="text" placeholder="Telefone">
+        <button type="button" onclick="validateForm()">Enviar</button>
+    </form>
+</section>
+
+
+<script>
+    var inputs = document.querySelectorAll('input');
+
+    function validateForm(){
+        inputs.forEach(validateInput);
+    }
+
+    function validateInput(input){
+        if(input.value == ''){
+            input.classList.add('error');
+        }else if(input.classList){
+            input.classList.remove('error');
+        }
+    }
+</script>

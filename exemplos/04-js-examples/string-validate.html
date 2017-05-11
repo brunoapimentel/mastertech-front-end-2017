@@ -1,0 +1,92 @@
+<style>
+    body{
+        margin: 0;
+        padding-top: 50px;
+        font-family: sans-serif;
+    }
+
+    section{
+        width: 100%;
+        max-width: 1000px;
+        display: block;
+        margin: auto;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    .controls input, button{
+        height: 40px;
+        margin-bottom: 10px;
+        padding-left: 5px;
+        border-radius: 5px;
+        border: 1px solid #aaa;
+
+        font-size: 16px;
+    }
+
+    .controls input{
+        width: 75%;
+    }
+
+    .controls button{
+        width: 20%;
+    }
+
+    .error{
+        color: red;
+        display: none;
+    }
+</style>
+
+<section>
+    <h2>Conversor de Moedas</h2>
+
+    <div class="controls">
+        <input type="text" placeholder="Digite o valor em R$">
+        <button onclick="calculate()">Converter</button>
+        <span class="error invalid">Digite apenas números</span>
+
+    </div>
+
+    <div class="currency-radio">
+        <input type="radio" name="currency" checked onclick="setActiveCurrency('USD')">Dólar Americano
+        <input type="radio" name="currency" onclick="setActiveCurrency('EUR')">Euro
+        <input type="radio" name="currency" onclick="setActiveCurrency('CND')">Dólar Canadense
+    </div>
+
+    <div id="result"></div>
+</section>
+
+
+<script>
+    var currencyButtons = document.querySelectorAll('.currency-buttons button');
+    var activeCurrency = 'USD';
+    var resultDiv = document.querySelector('#result');
+    var currencies = {
+        USD: 3.5,
+        EUR: 4.1,
+        CND: 3.0
+    }
+
+    function setActiveCurrency(value){
+        activeCurrency = value;
+    }
+
+    function calculate(){
+        var multiplier = currencies[activeCurrency];
+        var amount = document.querySelector('input').value;
+
+        if(isNaN(amount)){
+            document.querySelector('.error').style.display = 'block';
+            resultDiv.innerHTML = '';
+        }else{
+            document.querySelector('.error').style.display = 'none';
+            resultDiv.innerHTML = 'R$ ' + (amount * multiplier);
+        }
+
+
+    }
+
+</script>

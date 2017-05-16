@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+header{
+    background-color: #ddd;
+}
+
+h1{
+    margin: 0;
+    color: #257aed;
+    text-align: center;
+    font-size: 50px;
+}
+
+.linha{
+    display: flex;
+}
+
+.linha div img{
+    width: 100%;
+}
+
+.linha div{
+    padding: 10px;
+}
+
+.linha div .nome{
+    margin: 0;
+    font-size: 20px;
+}
+
+.linha div .preco{
+    margin: 0;
+    font-size: 32px;
+    color: #257aed;
+}

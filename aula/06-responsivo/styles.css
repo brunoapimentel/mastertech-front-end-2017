@@ -36,3 +36,9 @@ h1{
     font-size: 32px;
     color: #257aed;
 }
+
+@media (max-width: 800px) {
+  .linha{
+      display: block;
+  }
+}

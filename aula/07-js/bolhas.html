@@ -1,0 +1,69 @@
+<style>
+.area-bolhas div{
+    position: absolute;
+    background-color: blue;
+    border: 1px solid #bbb;
+    border-radius: 100%;
+}
+</style>
+
+<section>
+    <p>
+        Pontuacao: <span class="pontos">0</span>
+    </p>
+    <button>Iniciar</button>
+
+    <div class="area-bolhas"></div>
+</section>
+
+<script>
+    //Elementos
+    var areaBolhas = document.querySelector('.area-bolhas');
+    var spanPontos = document.querySelector('.pontos');
+    var botaoIniciar = document.querySelector('button');
+
+    //Variáveis do jogo
+    var pontuacao = 0;
+    var intervalo;
+
+    //Configurações do jogo
+    var dispersao = 600;
+    var tamanhoMaximoBolha = 200;
+    var tamanhoMinimoBolha = 10;
+    var velocidade = 500;
+    var limiteBolhas = 10;
+
+    function adicionarBolha(){
+        var bolha = document.createElement('div');
+        var tamanho = Math.random() * tamanhoMaximoBolha + tamanhoMinimoBolha + "px";
+
+        bolha.style.width = tamanho;
+        bolha.style.height = tamanho;
+
+        bolha.style.top = Math.random() * dispersao + "px";
+        bolha.style.left = Math.random() * dispersao + "px";
+
+        bolha.addEventListener('click', estourarBolha);
+
+        areaBolhas.appendChild(bolha);
+    }
+
+    function estourarBolha(){
+        areaBolhas.removeChild(this);
+
+        pontuacao++;
+
+        spanPontos.innerHTML = pontuacao;
+    }
+
+    function iniciarJogo(){
+        intervalo = setInterval(adicionarBolha, velocidade);
+        botaoIniciar.style.display = 'none';
+    }
+
+    function verificarGameOver(){
+        clearInterval(intervalo);
+    }
+
+    botaoIniciar.addEventListener('click', iniciarJogo);
+</script>

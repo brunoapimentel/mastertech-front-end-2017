@@ -1,0 +1,55 @@
+<style>
+    body{
+        font-size: 18px;
+    }
+
+    li{
+        cursor: pointer;
+    }
+
+    .feito{
+        text-decoration: line-through;
+    }
+</style>
+
+<section>
+    <header>
+        <input type="text">
+        <button class="botao-adicionar">Adicionar</button>
+        <button class="botao-limpar">Limpar</button>
+    </header>
+
+    <ul></ul>
+</section>
+
+<script>
+var input = document.querySelector('input');
+var botaoAdicionar = document.querySelector('.botao-adicionar');
+var botaoLimpar = document.querySelector('.botao-limpar');
+var lista = document.querySelector('ul');
+
+function adicionarItem(){
+    var item = document.createElement('li');
+    item.innerHTML = input.value;
+    item.addEventListener('click', completarTarefa);
+
+    lista.appendChild(item);
+}
+
+function completarTarefa(){
+    this.classList.add('feito');
+}
+
+function limparLista(){
+    var primeiroItem = lista.firstChild;
+
+    while(primeiroItem){
+        lista.removeChild(primeiroItem);
+
+        primeiroItem = lista.firstChild;
+    }
+}
+
+botaoAdicionar.addEventListener('click', adicionarItem);
+botaoLimpar.addEventListener('click', limparLista);
+</script>

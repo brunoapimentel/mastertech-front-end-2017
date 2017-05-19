@@ -1,0 +1,117 @@
+<!--
+EX: Vitrine de Personagens
+
+1-  Fazer com que seja exibido apenas um personagem de cada coluna
+
+2-  Criar um algoritmo que troque automaticamente a foto dos personagens
+Fazer com que o tempo de troca de cada vitrine seja diferente
+
+DESAFIO-  Exibir o nome correto de cada personagem exibido
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vitrines</title>
+</head>
+<body>
+<style>
+section{
+    display: flex;
+    padding: 0 20%;
+}
+
+section div{
+    width: 40%;
+    border: 1px solid gray;
+    overflow: hidden;
+    margin: 0 5%;
+    border-radius: 10px;
+    position: relative;
+}
+
+img{
+    width: 100%;
+    /* Vamos ocultar todas as imagens por padrão */
+    display: none;
+}
+
+/*
+    Essa classe vai ser adicionada à uma imagem para fazer com que ela
+    seja exibida
+ */
+img.ativa{
+    display: block;
+}
+
+.title{
+    position: absolute;
+    bottom: 0;
+    left: 7px;
+    font-size: 30px;
+    color: #f33;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+}
+</style>
+
+<section>
+    <div class="looney-tunes">
+        <img src="imagens/looney-tunes-01.jpg" class="ativa">
+        <img src="imagens/looney-tunes-02.jpg">
+        <img src="imagens/looney-tunes-03.jpg">
+        <p class="title">Looney Tunes</p>
+    </div>
+    <div class="muppets">
+        <img src="imagens/muppets-01.jpg" class="ativa">
+        <img src="imagens/muppets-02.jpg">
+        <img src="imagens/muppets-03.jpg">
+        <p class="title">Muppets</p>
+    </div>
+</section>
+
+<script>
+//Pegar referência dos elementos do DOM que serão usados
+var imagensLooneyTunes = document.querySelectorAll(".looney-tunes img");
+var imagensMuppets = document.querySelectorAll(".muppets img");
+
+//Variáveis que irão controlar a imagem que está ativa
+var imagemLooneyTunesAtiva = 0;
+var imagemMuppetsAtiva = 0;
+
+function trocarImagemLooneyTunes() {
+    //vamos remover a classe ativa da imagem que está sendo exibida
+    imagensLooneyTunes[imagemLooneyTunesAtiva].classList.remove('ativa');
+
+    //atualizar o índice
+    imagemLooneyTunesAtiva++;
+
+    //não podemos deixar o índice ser maior que o número de imagens disponíveis!
+    if(imagemLooneyTunesAtiva >= imagensLooneyTunes.length){
+        imagemLooneyTunesAtiva = 0;
+    }
+
+    //adicionar a classe ativa na próxima imagem (o índice foi atualizado)
+    imagensLooneyTunes[imagemLooneyTunesAtiva].classList.add('ativa');
+}
+
+function trocarImagemMuppets() {
+    imagensMuppets[imagemMuppetsAtiva].classList.remove('ativa');
+
+    imagemMuppetsAtiva++;
+
+    if(imagemMuppetsAtiva >= imagensMuppets.length){
+        imagemMuppetsAtiva = 0;
+    }
+
+    imagensMuppets[imagemMuppetsAtiva].classList.add('ativa');
+}
+
+//fazer com que as funções sejam repetidas em um intervalo de tempo
+setInterval(trocarImagemLooneyTunes, 500);
+setInterval(trocarImagemMuppets, 1000);
+</script>
+
+</body>
+</html>

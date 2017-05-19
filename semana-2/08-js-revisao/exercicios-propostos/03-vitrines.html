@@ -1,0 +1,72 @@
+<!--
+    EX: Vitrine de Personagens
+
+    1-  Fazer com que seja exibido apenas um personagem de cada coluna
+
+    2-  Criar um algoritmo que troque automaticamente a foto dos personagens
+        Fazer com que o tempo de troca de cada vitrine seja diferente
+
+    DESAFIO-  Exibir o nome correto de cada personagem exibido
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vitrines</title>
+    </head>
+    <body>
+        <style>
+            section{
+                display: flex;
+                padding: 0 20%;
+            }
+
+            section div{
+                width: 40%;
+                border: 1px solid gray;
+                overflow: hidden;
+                margin: 0 5%;
+                border-radius: 10px;
+                position: relative;
+            }
+
+            img{
+                width: 100%;
+                display: none;
+            }
+
+            img.ativa{
+                display: block;
+            }
+
+            .title{
+                position: absolute;
+                bottom: 0;
+                left: 7px;
+                font-size: 30px;
+                color: #f33;
+                font-weight: bold;
+                text-shadow: 1px 1px 1px black;
+            }
+        </style>
+
+        <section>
+            <div class="looney-tunes">
+                <img src="imagens/looney-tunes-01.jpg" class="ativa">
+                <img src="imagens/looney-tunes-02.jpg">
+                <img src="imagens/looney-tunes-03.jpg">
+                <p class="title">Looney Tunes</p>
+            </div>
+            <div class="muppets">
+                <img src="imagens/muppets-01.jpg" class="ativa">
+                <img src="imagens/muppets-02.jpg">
+                <img src="imagens/muppets-03.jpg">
+                <p class="title">Muppets</p>
+            </div>
+        </section>
+
+        <script>
+        </script>
+    </body>
+</html>

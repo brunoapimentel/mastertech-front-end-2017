@@ -51,10 +51,14 @@
             <button>Buscar</button>
         </div>
 
-
         <ul id="lista"></ul>
 
         <script>
+            //elementos que serão utilizados
+            var lista = document.querySelector('#lista');
+            var inputBusca = document.querySelector('#input-busca');
+            var botao = document.querySelector('button');
+
             var convidados = [
                 {nome: "Bob Sponja", idade: 20},
                 {nome: "Freddie Mercury", idade: 42},
@@ -66,6 +70,47 @@
                 {nome: "Jon Snow", idade: 16},
                 {nome: "Pikachu da Silva", idade: 12}
             ];
+
+            function buscar(convidado){
+                //o termo buscado está dentro do elemento inputBusca
+                var termoBuscado = inputBusca.value;
+
+                //vamos criar uma variável para armazenar apenas os convidados
+                //que tenham o nome semelhante ao termo buscado
+                var convidadosSelecionados;
+
+                //esse comando zera a lista para evitar que os resultados
+                //se acumulem
+                lista.innerHTML = '';
+
+                //vamos criar um laço que percorre todos os elementos da lista
+                for(var i = 0; i < convidados.length; i++){
+                    //essa variável foi criada para deixar um nome mais amigável
+                    var convidado = convidados[i];
+
+                    //a função indexOf retorna -1 caso ela não encontre o
+                    //termoBuscado dentro da string
+                    if(convidado.nome.indexOf(termoBuscado) >= 0){
+                        //a função push adiciona o item no final do vetor
+                        convidadosSelecionados.push(convidado);
+                    }
+                }
+
+                //chamar a função adicionarConvidado para cada convidado
+                //do vetor convidadosSelecionados
+                convidadosSelecionados.forEach(adicionarConvidado);
+            }
+
+            //essa função adiciona um novo item na lista
+            //é similar à função usada no exercício 2
+            function adicionarConvidado(convidado){
+                var li = document.createElement('li');
+                li.innerHTML = convidado.nome + ' - ' + convidado.idade;
+                lista.appendChild(li);
+            }
+
+            //adicionar evento no botão
+            botao.addEventListener('click', buscar);
         </script>
     </body>
 </html>

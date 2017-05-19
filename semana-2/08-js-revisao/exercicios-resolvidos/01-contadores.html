@@ -41,7 +41,22 @@
         </section>
 
         <script>
+            //selecionar os elementos que vamos utilizar
+            var contador1 = document.querySelector('.contador-1');
+            var contador2 = document.querySelector('.contador-2');
+            var contador3 = document.querySelector('.contador-3');
 
+            function incrementarContador(){
+                //o this representa o elemento que foi clicado
+                //innerHTML é o texto interno do elemento
+                //++ aumenta em 1 o valor e salva na mesma variável
+                this.innerHTML++;
+            }
+
+            //adicionar evento de clique em todos os contadores
+            contador1.addEventListener('click', incrementarContador);
+            contador2.addEventListener('click', incrementarContador);
+            contador3.addEventListener('click', incrementarContador);
         </script>
     </body>
 </html>

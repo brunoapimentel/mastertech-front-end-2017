@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <style>
+            .area{
+                display: flex;
+                flex-wrap: wrap;
+            }
+        </style>
+
+        <div class="area"></div>
+
+        <script src="quadrado-magico.js"></script>
+        <script>
+            var area = document.querySelector('.area');
+
+            for(var i = 0; i < 100; i++){
+                fabricarQuadradoMagico(area, 100);
+            }
+        </script>
+    </body>
+</html>

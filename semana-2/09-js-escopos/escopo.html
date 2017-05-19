@@ -1,0 +1,47 @@
+<script>
+    //Essa variável é global e pode ser acessada de
+    //qualquer função
+    var poste = "luz";
+
+    function casa1(){
+        function cozinha(){
+            function gaveta(){
+                //Essa é uma variável local da função gaveta
+                //e não pode ser acessada fora dela.
+                //Ela só existe quando essa função é executada,
+                //e é destruída após o final da execução
+                var utensilio = "colher";
+
+                console.log('Utensílio da casa 1: ' + utensilio);
+            }
+            //Gera erro pois utensílio não existe nesse escopo
+            console.log(utensilio);
+
+            gaveta();
+        }
+
+        cozinha();
+    }
+
+
+    function casa2(){
+        function cozinha(){
+            function gaveta(){
+                //Essa variável é local da função armário
+                //e não tem nenhuma relação com a variável
+                //utensilio da função gaveta da casa1
+                var utensilio = "garfo";
+
+                console.log('Utensílio da casa 2: ' + utensilio);
+            }
+        }
+    }
+
+    //executa casa1 e casa2
+    casa1();
+    casa2();
+
+    //ao executar casa1 de novo, cria-se uma nova 'casa',
+    //assim como todas as variáveis internas
+    casa1();
+</script>

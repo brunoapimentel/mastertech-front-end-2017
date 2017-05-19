@@ -23,33 +23,51 @@
 </section>
 
 <script>
+//selecionar os elementos do DOM que vamos utilizar
 var input = document.querySelector('input');
 var botaoAdicionar = document.querySelector('.botao-adicionar');
 var botaoLimpar = document.querySelector('.botao-limpar');
 var lista = document.querySelector('ul');
 
+//esa função cria um novo elemento e insere ele no DOM
 function adicionarItem(){
+    //criar um novo elemento do tipo 'li'
     var item = document.createElement('li');
+    //insere um texto interno no elemento através da propriedade innerHTML
     item.innerHTML = input.value;
+    //adiciona um evento de click no elemento
     item.addEventListener('click', completarTarefa);
 
+    //adiciona o novo elemento no DOM como filho do elemento 'ul'
+    //se o novo elemento não é adicionado ao DOM através do método appendChild,
+    //ele não vai ser exibido na página!
     lista.appendChild(item);
 }
 
 function completarTarefa(){
+    //this representa o elemento da lista que foi clicado
+    //adiciona a clase feito para dar o efeito de 'tachado'
     this.classList.add('feito');
 }
 
 function limparLista(){
+    //a propriedade firstChild sempre mostra quem é o primeiro elemento filho
+    //de um outro elemento
     var primeiroItem = lista.firstChild;
 
+    //caso o elemento não possua filhos, a propriedade firstChild vai retornar
+    //'undefined', o que fará com que o laço while seja interrompido
     while(primeiroItem){
+        //remove o primeiro filho da lista
         lista.removeChild(primeiroItem);
 
+        //atualiza a variavel primeiroItem com o novo primeiro filho da lista,
+        //ou com 'undefined' caso a lista esteja vazia
         primeiroItem = lista.firstChild;
     }
 }
 
+//adiciona evento de clique nos botões
 botaoAdicionar.addEventListener('click', adicionarItem);
 botaoLimpar.addEventListener('click', limparLista);
 </script>

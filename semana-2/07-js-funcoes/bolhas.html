@@ -34,36 +34,53 @@
     var limiteBolhas = 10;
 
     function adicionarBolha(){
+        //cria um novo elemento do tipo 'div', que será nossa bolha
         var bolha = document.createElement('div');
+
+        //O tamanho da bolha será sorteado através da função Math.random
+        //Essa função recebe um valor aleatório entre 0 e 1
+        //Vamos multiplicar esse valor pelo tamanhoMaximoBolha e somar
+        //tamanhoMinimoBolha no resultado, para alcançarmos um tamanho adequado
         var tamanho = Math.random() * tamanhoMaximoBolha + tamanhoMinimoBolha + "px";
 
+        //vamos definir o tamanho sorteado no estilo da bolha
         bolha.style.width = tamanho;
         bolha.style.height = tamanho;
 
+        //Sortear a posição vertical da bolha
         bolha.style.top = Math.random() * dispersao + "px";
+        //Note que é sorteado um valor diferente para a posição horizontal
         bolha.style.left = Math.random() * dispersao + "px";
 
+        //adicionar um evento de clique na bolha, que fará com que ela seja
+        //estourada
         bolha.addEventListener('click', estourarBolha);
 
+        //incluir a bolha na área de bolhas, fazendo com que ela se torne
+        //visível na página
         areaBolhas.appendChild(bolha);
     }
 
     function estourarBolha(){
+        //this representa a bolha clicada
+        //removê-la do DOM
         areaBolhas.removeChild(this);
 
+        //aumentar a pontuação do jogador
         pontuacao++;
 
+        //exibir a nova pontuação no span 'pontos'
         spanPontos.innerHTML = pontuacao;
     }
 
     function iniciarJogo(){
+        //temporizar a função adicionarBolha para ser executada
+        //repetidamente na velocidade definida
         intervalo = setInterval(adicionarBolha, velocidade);
+        //ocultar o botao que inicia o jogo
         botaoIniciar.style.display = 'none';
     }
 
-    function verificarGameOver(){
-        clearInterval(intervalo);
-    }
-
+    //iniciar o jogo ao clicar no botao iniciar
     botaoIniciar.addEventListener('click', iniciarJogo);
 </script>

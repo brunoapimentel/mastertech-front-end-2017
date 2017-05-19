@@ -1,0 +1,68 @@
+<script>
+    /*
+        Esse exemplo mostra como usar uma função como parâmetro para outra
+        função
+
+        Vamos usar a função forEach, que é uma função auxiliar que existe em
+        todos os vetores.
+
+        Ela executa a função que foi passada como parâmetro pelo número de vezes
+        igual à quantidade de itens no vetor. Porém, em cada execução, ela passa
+        um item diferente como primeiro parâmetro da função passada como
+        parâmetro
+    */
+
+
+    var pecasJogador1 = ['rei', 'rainha', 'torre'];
+    var pecasJogador2 = ['rei', 'cavalo', 'peão'];
+
+    //essa função vai ser executada uma vez para cada peça de um jogador
+    //o parâmetro item vai receber uma peça diferente em cada execução
+    function imprimirItemVetor(item){
+        //o console vai exibir rei, rainha, torre para o jogador1
+        //e rei, cavalo, peao para o jogador2
+        console.log(item);
+    }
+
+    //executando a funcao nos dois vetores
+    pecasJogador1.forEach(imprimirItemVetor);
+    pecasJogador2.forEach(imprimirItemVetor);
+
+
+    /**
+        Esse exemplo mostra como funciona a palavra chave 'this'.
+
+        A palavra chave 'this' representa o objeto que executou a função.
+        Em geral, esse é o objeto que fica antes do '.' (ponto)
+    */
+
+    //declaramos uma função
+    function calcularIdade(){
+        //veja no console quem foi o objeto que chamou a função
+        console.log(this);
+
+        //this representa o objeto que chamou a função
+        return 2017 - this.anoNascimento;
+    }
+
+    //Vamos criar dois objetos que usam a função calcularIdade em uma das suas
+    //chaves
+    //Quando isso acontece, o objeto se torna 'dono' dessa função, e pode ser
+    //referenciado usando a palavra chave 'this' dentro da mesma função
+    var pessoa1 = {
+        nome: "Joao",
+        anoNascimento: 1999,
+        idade: calcularIdade
+    }
+
+    var pessoa2 = {
+        nome: "Jose",
+        anoNascimento: 1987,
+        idade: calcularIdade
+    }
+
+    //veja no console o resultado desse cálculo
+    console.log(pessoa1.idade())
+    console.log(pessoa2.idade())
+
+</script>

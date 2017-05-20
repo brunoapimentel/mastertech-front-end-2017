@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bombas</title>
+    </head>
+    <body>
+        <style media="screen">
+            img{
+                width: 50px;
+                /* o posicionamento absoluto da imagem permite que elas possam
+                   ser espalhadas na página */
+                position: absolute;
+            }
+
+            section{
+                width: 100%;
+                /* Se não definirmos uma altura em px para a section, ela
+                   terá altura 0, visto que não tem elementos dentro!
+                   A altura 0 vai fazer com que todas as bombas fiquem na mesma
+                   posição*/
+                height: 800px;
+            }
+        </style>
+
+        <section></section>
+
+        <script>
+            //selecionar o container
+            var section = document.querySelector('section');
+
+            function fabricarBomba(container){
+                //criar nova imagem
+                var bomba = document.createElement('img');
+                var audio = new Audio('assets/explosao.mp3');
+
+                //Vamos definir a posição máxima da bomba baseada na largura
+                //e altura do container
+                //As propriedades offsetWidth e offsetHeight exibem as
+                //dimensões reais do container, visto que isso não é possível
+                //através do style
+                var posicaoHorizontalMaxima = container.offsetWidth;
+                var posicaoVerticalMaxima = container.offsetHeight;
+
+                //atribuir caminho da imagem
+                bomba.src = 'assets/bomba.png';
+
+                //sortear a posição vertical e horizontal baseado nos tamanhos
+                //máximos definidos
+                bomba.style.top = Math.random() * posicaoVerticalMaxima + 'px';
+                bomba.style.left = Math.random() * posicaoHorizontalMaxima + 'px';
+
+                //Trocar a imagem da bomba para a imagem da explosão, tocar o
+                //som e remover o evento de mouseover da bomba (assim ela não vai
+                //explodir mais de uma vez)
+                function explodir(){
+                    bomba.src = 'assets/explosao.png';
+                    audio.play();
+                    bomba.removeEventListener('mouseover', explodir);
+                }
+
+                function sortearPosicao(){
+
+
+                    return
+                }
+
+                //adicionar evento na bomba
+                bomba.addEventListener('mouseover', explodir);
+
+                //inserir a bomba no DOM como filha do container
+                container.appendChild(bomba);
+            }
+
+            //vamos gerar 100 bombas ao carregar a página!
+            for(var i = 0; i < 100; i++){
+                fabricarBomba(section);
+            }
+
+        </script>
+    </body>
+</html>

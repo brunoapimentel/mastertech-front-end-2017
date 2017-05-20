@@ -1,0 +1,95 @@
+<!--
+    Criar um script que permite mover um quadrado pela tela clicando e
+    arrastando com o mouse
+
+    NOVOS CONCEITOS:
+    - eventos: mousedown, mouseup e mousemove
+    - removeEventListener
+    - variável window
+
+    PREPARAÇÃO:
+    - Ler os comentários na seção script
+    - Executar o arquivo no browser, clicar e arrastar o quadrado. Ele não
+    vai se mover ainda, mas o console vai logar a posição do mouse conforme
+    ele se movimenta
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Labirinto</title>
+    </head>
+    <body>
+        <style>
+            body{
+                margin: 0
+            }
+
+            section{
+                position: relative;
+            }
+
+            div{
+                border: 4px solid #aaa;
+                background-color: #333;
+                width: 196px;
+                height: 196px;
+                position: absolute;
+            }
+        </style>
+
+        <section>
+            <div></div>
+        </section>
+
+        <script>
+            //selecionar o elemento que vamos usar
+            var quadrado = document.querySelector('div');
+
+            //Essa função vai logar a posição do ponteiro do mouse depois que
+            //clicarmos com o mouse em cima do quadrado e arrastarmos
+            //Note que a variável 'event' vai receber dados sobre o evento
+            //de movimento do mouse, que serão usados para alterar o css
+            //do quadrado e fazer com que ele se mova na tela
+            function logarEvento(event){
+                //Atribuir o valor de screenY (posição vertical do mouse) ao
+                //css top do quadrado
+                //Subtraimos 200 porque se não o ponteiro vai fica fora do
+                //quadrado
+                quadrado.style.top = event.screenY - 200 + 'px';
+
+                //Atribuir o valor de screenX (posição horizontal do mouse) ao
+                //css left do quadrado
+                //Subtraimos 100 porque se não o ponteiro fica fora do
+                //quadrado
+                quadrado.style.left = event.screenX - 100 + 'px';
+            }
+
+            //Vamos adicionar um evento de movimento do mouse na janela inteira,
+            //por isso estamos usando a variável window
+            //Esse evento é disparado a cada pequeno movimento do mouse
+            function pegarQuadrado(){
+                window.addEventListener('mousemove', logarEvento);
+            }
+
+            //Quando essa função for chamada, ela vai retirar o evento de log
+            //da janela
+            //Ela vai ser usada para 'soltar' o quadrado, quando programarmos
+            //o movimento
+            function soltarQuadrado(){
+                window.removeEventListener('mousemove', logarEvento);
+            }
+
+            //Adicionar um evento ao clicar (mousedown) apenas na div do
+            //quadrado
+            //Não queremos que o quadrado se movimente se começarmos o clique
+            //em algum outro lugar
+            quadrado.addEventListener('mousedown', pegarQuadrado);
+
+            //Adicionar um evento ao soltar o clique do mouse (mouseup)
+            //na janela inteira
+            window.addEventListener('mouseup', soltarQuadrado);
+
+        </script>
+    </body>
+</html>

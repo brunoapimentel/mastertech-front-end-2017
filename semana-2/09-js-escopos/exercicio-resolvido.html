@@ -1,0 +1,72 @@
+<!--
+    Criar uma função que recebe um elemento do DOM e transforma ele em um
+    contador. Desconsiderar elementos que não tem innerHTML (input, img, etc).
+
+    O contador deve ser inicializado automaticamente com o número 0 através
+    do JS, e deve ser incrementado de forma independente a cada clique que
+    ele receber.
+
+    Utilize o conceito de closure.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Contador</title>
+    </head>
+    <body>
+        <style>
+            body{
+                font-size: 30px;
+            }
+
+            button{
+                font-size: 30px;
+                padding: 20px;
+                border: 0;
+                border-radius: 20px;
+            }
+        </style>
+
+        <section>
+            <p></p>
+            <button></button>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+
+        <script type="text/javascript">
+            //selecionar elementos
+            var p = document.querySelector('p');
+            var button = document.querySelector('button');
+            var lis = document.querySelectorAll('li');
+
+            //função que transforma um elemento em um contador
+            function fabricarContador(elemento){
+                //Essa variável é local, ou seja, ela só existe dentro da
+                //função. Dessa forma, cada contador possui uma variável
+                //valor independente!
+                var valor = 0;
+
+                function incrementarValor(){
+                    valor++;
+                    elemento.innerHTML = valor;
+                }
+
+                elemento.innerHTML = valor;
+                elemento.addEventListener('click', incrementarValor);
+            }
+
+            //fabricar os contadores
+            fabricarContador(p);
+            fabricarContador(button);
+            fabricarContador(p);
+
+            //fabricar um contador para cada elemento da lista
+            lis.forEach(fabricarContador);
+        </script>
+    </body>
+</html>

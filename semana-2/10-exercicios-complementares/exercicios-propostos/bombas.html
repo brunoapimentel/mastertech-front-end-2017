@@ -1,0 +1,53 @@
+<!--
+    Criar um campo de bombas que explodem ao passar o mouse por cima delas.
+    Cada bomba deve ter uma largura de 50px e ter uma posição aleatória
+    dentro da section.
+
+    NOVOS CONCEITOS:
+    - Alterar o src de uma imagem com JS
+    - Usar um som dentro da página
+
+    PREPARAÇÃO:
+    - Abra a página e passe o mouse por cima da bomba
+    - Veja o código comentado em JS que ensina a mudar o src da imagem
+      e tocar o som
+    - Para resolver o exercício, vamos usar conceitos similares ao jogo de
+      bolhas. A diferença é que a bomba vai explodir ao passar o mouse por cima.
+
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bombas</title>
+    </head>
+    <body>
+        <section>
+            <img src="assets/bomba.png" alt="bomba">
+        </section>
+
+        <script>
+            //selecionar imagem da bomba
+            var bomba = document.querySelector('img');
+
+            //Essa função toca um mp3 quando executada
+            function tocarSom(){
+                var audio = new Audio('assets/explosao.mp3');
+                audio.play();
+            }
+
+            //Trocar a imagem da bomba para a imagem da explosão, tocar o
+            //som e remover o evento de mouseover da bomba (assim ela não vai
+            //explodir mais de uma vez)
+            function explodir(){
+                bomba.src = 'assets/explosao.png';
+                tocarSom();
+
+                bomba.removeEventListener('mouseover', explodir);
+            }
+
+            //adicionar evento na bomba
+            bomba.addEventListener('mouseover', explodir);
+        </script>
+    </body>
+</html>

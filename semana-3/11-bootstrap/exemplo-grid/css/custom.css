@@ -1,0 +1,66 @@
+body{
+    background: linear-gradient(90deg, #4e5d6c 250px, #2b3e50 0);
+}
+
+aside{
+    background-color: #4e5d6c;
+    color: white;
+    height: 100vh;
+}
+
+aside ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+aside li{
+    padding: 10px;
+    font-size: 20px;
+}
+
+a{
+    color: white;
+}
+
+a:hover{
+    color: #df691a;
+}
+
+h2{
+    color: #df691a;
+}
+
+header{
+    margin-top: 15px;
+}
+
+header .welcome{
+    font-size: 20px;
+}
+
+.mobile-header{
+    height: 50px;
+    background-color: #4e5d6c;
+}
+
+.mobile-header .glyphicon{
+    color: white;
+    padding: 10px;
+    font-size: 28px;
+}
+
+@media (max-width: 760px) {
+    body{
+        background: #2b3e50 ;
+    }
+
+    aside{
+        margin: -20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    body{
+        background: linear-gradient(90deg, #4e5d6c 400px, #2b3e50  0);
+    }
+}

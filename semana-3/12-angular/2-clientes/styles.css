@@ -1,0 +1,48 @@
+
+
+.col-lista ul{
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+    height: 540px;
+    overflow-y: scroll;
+
+    font-size: 20px;
+}
+
+.col-lista li{
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+.col-lista li:hover{
+    background-color: #eee;
+}
+
+.col-lista li img{
+    width: 70px;
+    border-radius: 100%;
+}
+
+.col-detalhes .panel{
+    height: 540px;
+}
+
+.col-detalhes .panel-body{
+    padding: 20px 40px;
+}
+
+.col-detalhes h3{
+    margin: 0;
+}
+
+.col-detalhes p{
+    font-size: 20px;
+}
+
+.col-detalhes img{
+    margin: auto;
+    width: 300px;
+    display: block;
+    margin-bottom: 30px;
+}

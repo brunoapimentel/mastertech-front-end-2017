@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Todo</title>
+
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+    </head>
+
+    <!--
+        Inicializamos o app usando a diretiva ng-app.
+        Todos os elementos interiores a esse serão gerenciados pelo módulo 'todo'
+    -->
+    <body ng-app="todo">
+        <div class="container">
+            <!--
+                O TodoController é atribuído à div do painel.
+                Todos os elementos interiores a esse serão gerenciados por esse controller.
+            -->
+            <div class="panel panel-primary" ng-controller="TodoController">
+                <div class="panel-heading">
+                    <h3>Lista de Tarefas</h3>
+                    <div class="row">
+                        <div class="form-group col-sm-8">
+                            <!-- a diretiva ng-model liga esse input à variavel 'dados.nome' no $scope desse controller -->
+                            <input type="text" class="form-control" placeholder="Digite uma tarefa" ng-model="dados.nome">
+                        </div>
+                        <div class="col-sm-2">
+                            <!-- a diretiva ng-click atribui uma função ao evento de clique desse botão -->
+                            <button class="btn btn-block btn-success" ng-click="inserirTarefa()">INSERIR</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <!-- a diretiva ng-click atribui uma função ao evento de clique desse botão -->
+                            <button class="btn btn-block btn-danger" ng-click="limparTarefas()">LIMPAR</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <ul>
+                        <!-- a diretiva ng-repeat cria um elemento desse tipo para cada objeto dentro do vetor 'tarefas'-->
+                        <!-- a diretiva ng-class insere classes dinamicamente no elemento.
+                             Nesse caso, a classe 'feita' é adicionado quando item.feita é true -->
+                        <!-- as chaves duplas '{{}}' servem para imprimir uma variável no HTML -->
+                        <li ng-repeat="item in tarefas" ng-click="fazerTarefa(item)" ng-class="{'feita': item.feita}">{{item.nome}}</li>
+                    </ul>
+
+                    <!-- a diretiva ng-show exibe o elemento apenas se a condição informada for verdadeira -->
+                    <div class="alert alert-info" ng-show="tarefas.length == 0">
+                        Não há tarefas!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- é necessáro incluir o arquivo do framework -->
+        <script src="../assets/js/angular.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

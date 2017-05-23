@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Clientes</title>
+
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+    </head>
+
+    <body ng-app="clientes">
+        <div class="container">
+            <div class="page-header">
+                <h1>Meus clientes <small></small></h1>
+            </div>
+
+            <div class="row" ng-controller="ListaController">
+
+                <!-- coluna esquerda com lista de clientes -->
+                <div class="col-md-4 col-lista">
+                    <ul class="panel panel-default">
+                        <li ng-repeat="cliente in clientes" ng-click="setClienteAtivo(cliente)">
+                            <img ng-src="imagens/{{cliente.avatar}}">
+                            <span>{{cliente.nome}}</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- coluna diretia com detalhes de cliente -->
+                <div class="col-md-8 col-detalhes">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>{{clienteAtivo.nome}}</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <img ng-src="imagens/{{clienteAtivo.avatar}}">
+
+                            <p>Idade: {{clienteAtivo.idade}}</p>
+                            <p>Telefone: {{clienteAtivo.telefone}}</p>
+                            <p>Email: {{clienteAtivo.email}}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="../assets/js/angular.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

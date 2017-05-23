@@ -4,7 +4,6 @@
 - Grid
 
 # Referências
-http://getbootstrap.com
-http://getbootstrap.com/css/
-http://getbootstrap.com/components/
-http://getbootstrap.com/css/#grid
+- http://getbootstrap.com
+- http://getbootstrap.com/components/
+- http://getbootstrap.com/css/#grid

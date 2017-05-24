@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body ng-app="exemplo">
+        <style media="screen">
+            .quadrado{
+                width: 50px;
+                height: 50px;
+                background-color: red;
+            }
+
+            .quadrado.azul{
+                background-color: blue;
+            }
+        </style>
+
+        <div ng-controller="TesteController">
+            <h2>Impressão de variáveis</h2>
+            {{nome}}
+
+            <h2>ng-repeat</h2>
+            <ul>
+                <li ng-repeat="pessoa in convidados">{{pessoa}}</li>
+            </ul>
+            <a href="https://docs.angularjs.org/api/ng/directive/ngRepeat">#doc</a>
+
+            <h2>ng-click</h2>
+            <p>{{cor}}</p>
+            <button ng-click="trocarCor()">Trocar Cor</button>
+            <a href="https://docs.angularjs.org/api/ng/directive/ngClick">#doc</a>
+
+            <h2>ng-class</h2>
+            <div class="quadrado" ng-class="{'azul': cor == 'azul'}"></div>
+            <a href="https://docs.angularjs.org/api/ng/directive/ngClass">#doc</a>
+
+            <h2>ng-show</h2>
+            <p ng-show="cor == 'azul'">Só apareço quando a cor for azul</p>
+            <a href="https://docs.angularjs.org/api/ng/directive/ngShow">#doc</a>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+        <script>
+            var app = angular.module('exemplo', []);
+
+            function TesteController($scope){
+                $scope.nome = "João";
+                $scope.convidados = ["João", "José", "Maria"];
+                $scope.cor = "vermelho";
+
+                $scope.trocarCor = trocarCor;
+
+                function trocarCor(){
+                    if($scope.cor == "azul"){
+                        $scope.cor = "vermelho";
+                    }else{
+                        $scope.cor = "azul";
+                    }
+                }
+            }
+
+            app.controller('TesteController', TesteController);
+        </script>
+    </body>
+</html>

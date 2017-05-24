@@ -1,4 +1,6 @@
-
+body{
+    padding-top: 20px;
+}
 
 .col-lista ul{
     padding: 0;
@@ -45,4 +47,12 @@
     width: 300px;
     display: block;
     margin-bottom: 30px;
+}
+
+.form-cadastro .panel{
+    /*height: 200px;*/
+}
+
+.form-cadastro h3{
+    margin: 0
 }

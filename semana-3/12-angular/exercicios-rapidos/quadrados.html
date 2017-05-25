@@ -20,11 +20,38 @@
     }
 </style>
 
-<section class="tabuleiro">
-
+<section class="tabuleiro" ng-app="quadrado" ng-controller="TabuleiroController">
+    <div class="quadrado"
+    ng-repeat="umQuadrado in quadrados"
+    ng-click="ativarQuadrado(umQuadrado)"
+    ng-class="{'ativo': umQuadrado.status}">{{umQuadrado.id}}</div>
 </section>
 
 <script src="../assets/js/angular.min.js"></script>
 <script>
+var app = angular.module('quadrado', []);
+
+function Ctrl($scope){
+    $scope.quadrados = [
+        {id: 1, status: false},
+        {id: 2, status: false},
+        {id: 3, status: false},
+        {id: 4, status: false},
+        {id: 5, status: false},
+        {id: 6, status: false},
+        {id: 7, status: false},
+        {id: 8, status: false},
+        {id: 9, status: false},
+    ];
+
+    $scope.ativarQuadrado = ativarQuadrado;
+
+    function ativarQuadrado(umQuadrado) {
+        umQuadrado.status = true;
+    }
+
+}
+
+app.controller('TabuleiroController', Ctrl);
 
 </script>

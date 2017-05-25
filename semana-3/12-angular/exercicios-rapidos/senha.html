@@ -2,7 +2,7 @@
      Caso a senha tenha menos que 6 caracteres, exibir a mensagem de erro na
      span e a classe 'erro' no input.
 
-     Dica: usar a diretiva ng-model 
+     Dica: usar a diretiva ng-model
 -->
 
 <style>
@@ -14,12 +14,21 @@
     }
 </style>
 
-<section ng-app="senha">
-    <input type="text">
-    <span>A senha é muito curta</span>
+<section ng-app="senha" ng-controller="FormController">
+    <input type="text" ng-model="dados.password" ng-class="{'erro': dados.password.length < 6}">
+    <span ng-show="dados.password.length < 6">A senha é muito curta</span>
+    {{senha}}
 </section>
 
 <script src="../assets/js/angular.min.js"></script>
 <script>
+    var app = angular.module("senha", []);
 
+    function Ctrl($scope){
+        $scope.dados = {
+            password: ''
+        };
+    }
+
+    app.controller('FormController', Ctrl);
 </script>

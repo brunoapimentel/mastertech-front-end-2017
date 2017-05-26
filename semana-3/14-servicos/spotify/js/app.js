@@ -6,6 +6,9 @@ function BuscaController($scope, $http){
     $scope.erro = false;
 
     $scope.buscar = buscar;
+    $scope.buscarNoEnter = buscarNoEnter;
+
+    var tempoInicio;
 
     function buscar(){
         $scope.erro = false;
@@ -25,6 +28,14 @@ function BuscaController($scope, $http){
     function respostaErro(){
         $scope.artistas = null;
         $scope.erro = true;
+    }
+
+    function buscarNoEnter(event){
+        //verificar o código da tecla pressionada
+        //o código 13 é a tecla 'enter' 
+        if(event.keyCode == 13){
+            buscar();
+        }
     }
 }
 

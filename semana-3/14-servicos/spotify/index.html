@@ -15,7 +15,8 @@
             <span class="navbar-brand col-md-2">Busca Spotify</span>
 
             <div class="form-group col-md-8">
-                <input type="text" class="form-control" placeholder="Digite o nome do artista..." ng-model="entrada">
+                <!-- Adicionar o evento através da diretiva ng-keydown. Usamos o parâmetro $event para inserir informações do evento de clique dentro da função -->
+                <input type="text" class="form-control" placeholder="Digite o nome do artista..." ng-model="entrada" ng-keydown="buscarNoEnter($event)">
             </div>
             <div class="form-group col-md-2">
                 <button class="btn btn-success btn-block" ng-click="buscar()">Buscar</button>

@@ -1,0 +1,135 @@
+<!--
+    Exercício de Revisão:
+
+    1-  Fazer com que as seções 'Listagem de Clientes' e 'Cadastro de Clientes'
+        sejam exibidas ao clicar nos links no menu superior. Isso criará uma
+        ilusão de 'troca de página'. A seção 'Listagem' deve ser exibida por
+        padrão.
+
+    EXERCÍCIOS PARA SEÇÃO LISTAGEM DE CLIENTES
+
+    2-  Exibir os clientes que estão no vetor clientes (app.js) na coluna
+        esquerda. Cada cliente deve ser exibido como um item da lista, com sua
+        foto e seu nome.
+
+    3-  Exibir o primeiro cliente do vetor clientes na coluna direita. Deve ser
+        exibida sua foto e seus dados, conforme dispostos no HTML.
+
+    4-  Permitir que seja selecionado o cliente a ser exibido na coluna direita
+        através de um clique na lista de clientes. O primeiro cliente deve
+        vir pré-selecionado.
+
+    EXERCÍCIOS PARA SEÇÃO CADASTRO DE CLIENTES
+
+    5- Fazer com que um cliente seja inserido através do formulário.
+
+    DESAFIO
+    6-  Fazer com que seja exibida uma mensagem de sucesso ao inserir um cliente.
+        A mensagem deve ser exibida por 2 segundos, e desaparecer sozinha.
+
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Clientes</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <span class="navbar-brand">Clien Tella</span>
+                </div>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Consultar</a></li>
+                    <li><a href="#">Adicionar</a></li>
+                </ul>
+            </nav>
+
+            <!-- Listagem de Clientes -->
+            <section class="row">
+                <!-- coluna esquerda com lista de clientes -->
+                <div class="col-md-4 col-lista">
+                    <ul class="panel panel-default">
+                        <li>
+                            <img src="imagens/avatar1.jpg">
+                            <span>Nome do Cliente</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- coluna direita com detalhes de cliente -->
+                <div class="col-md-8 col-detalhes">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Nome do Cliente</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <img src="imagens/avatar1.jpg">
+
+                            <p>Idade: </p>
+                            <p>Telefone: </p>
+                            <p>Email: </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cadastro de Clientes -->
+            <section class="row form-cadastro">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Cadastrar Cliente</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="form-group col-md-6">
+                                <label>Nome</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Avatar</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>E-mail</label>
+                                <input type="email" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Telefone</label>
+                                <input type="tel" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Idade</label>
+                                <input type="number" class="form-control">
+                            </div>
+
+                            <div class="col-md-6">
+                                <button class="btn btn-success">Cadastar</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <script src="js/angular.min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

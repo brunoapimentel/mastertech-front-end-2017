@@ -1,0 +1,81 @@
+<!--
+
+    Jogo de Jan Ken Pow Multiplayer
+
+    Para jogar, devemos informar o nome do jogador e se desejamos iniciar
+    uma nova sala ou entrar em uma sala já existente. No último caso, devemos
+    também informar o id da sala.
+
+    Esse jogo é feito através da API pública do MyJson, que salva um objeto
+    JSON e retorna um id para que ele seja acessado por qualquer um futuramente
+    (esse id é o mesmo usado como número da sala).
+
+    Dessa forma, ele funciona como um local centralizado para manter informações
+    de um jogo para dois jogadores diferentes, bastando que o segundo use o id
+    correto da sala.
+
+    Após iniciado, o jogo sincroniza os dados com a API à cada 2 segundos. Note
+    que não foram feitos nenhum tratamento de erros ou falta de informações
+    por conta do usuário, e que existem diversos aspectos que devem ser
+    melhorados para fornecer uma melhor experiência para o usuário. 
+
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Jan Ken Po</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body ng-app="janken" ng-controller="JogoController">
+        <div class="container">
+            <h1>Jan Ken Po</h1>
+            <section class="cadastro">
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" placeholder="Digite seu nome" ng-model="dados.nome">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <input type="text" class="form-control" placeholder="Digite o id da sala" ng-model="dados.sala">
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <button class="btn btn-info" ng-click="entrarSala()">Entrar na Sala</button>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <button class="btn btn-success" ng-click="criarSala()">Criar Sala</button>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="sala">
+                <h2>Sala: {{jogo.sala}}</h2>
+
+                <p>Jogador 1: {{jogo.jogador1.nome}} - {{jogo.jogador1.jogada}}</p>
+                <p>Jogador 2: {{jogo.jogador2.nome}} - {{jogo.jogador2.jogada}} </p>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn btn-info" ng-click="fazerJogada('pedra')">Pedra</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-info" ng-click="fazerJogada('papel')">Papel</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-info" ng-click="fazerJogada('tesoura')">Tesoura</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script src="js/angular.min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

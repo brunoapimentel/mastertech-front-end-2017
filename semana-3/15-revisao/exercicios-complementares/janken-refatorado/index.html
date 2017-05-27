@@ -1,0 +1,78 @@
+<!--
+
+    Jogo de Jan Ken Pow Multiplayer - Refatorado
+
+    É uma versão idêntica ao jogo original de Jan Ken, porém com o código de JS
+    refatorado com intenção de mantê-lo limpo, legível e fácil de modificar.
+    Se você ainda não viu o original, pare aqui e veja, depois retorne!
+
+    Note que o resultado final à nível de funcionalidades é exatamente idêntico
+    ao original, com pequenas diferenças em quais dados são sincronizados, que
+    ocorreram devido a mudança na implementação.
+
+    A nível de usabilidade e funcionalidades, ainda temos muito para aprimorar,
+    porém o código está organizado e favorável para isso :)
+
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Jan Ken Po</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body ng-app="janken" ng-controller="JogoController">
+        <div class="container">
+            <h1>Jan Ken Po</h1>
+            <section class="cadastro">
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" placeholder="Digite seu nome" ng-model="dados.nome">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <input type="text" class="form-control" placeholder="Digite o id da sala" ng-model="dados.sala">
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <button class="btn btn-info" ng-click="entrarSala()">Entrar na Sala</button>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <button class="btn btn-success" ng-click="criarSala()">Criar Sala</button>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="sala">
+                <h2>Sala: {{jogo.sala}}</h2>
+
+                <p>Jogador 1: {{jogo.jogador1.nome}} - {{jogo.jogador1.jogada}}</p>
+                <p>Jogador 2: {{jogo.jogador2.nome}} - {{jogo.jogador2.jogada}} </p>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <button class="btn btn-info" ng-click="fazerJogada('pedra')">Pedra</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-info" ng-click="fazerJogada('papel')">Papel</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-info" ng-click="fazerJogada('tesoura')">Tesoura</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script src="js/angular.min.js"></script>
+        <script src="js/services/jogo.js"></script>
+        <script src="js/services/my-json.js"></script>
+        <script src="js/controller.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

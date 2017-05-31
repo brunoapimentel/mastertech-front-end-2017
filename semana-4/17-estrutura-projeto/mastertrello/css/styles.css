@@ -1,0 +1,26 @@
+.pagina-quadro div{
+    display: flex;
+}
+
+.pagina-quadro article{
+    width: 150px;
+    background-color: #0b1e30;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.pagina-quadro article input{
+    border: 0;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+}
+
+.pagina-quadro article p{
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    color: #666;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MasterTrello</title>
+    <link rel="stylesheet" href="css/superhero-bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body ng-app="mastertrello">
+    <div class="container">
+        <h1>MasterTrello</h1>
+
+        <!-- A diretiva ui-view será substituída pelo ui-router pelo template
+            do estado atual. -->
+        <ui-view></ui-view>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.1.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCjkTrjUPsGVxkKq6O_C6nfOpxmHRZFI6k",
+        authDomain: "myboard-f1efe.firebaseapp.com",
+        databaseURL: "https://myboard-f1efe.firebaseio.com",
+        projectId: "myboard-f1efe",
+        storageBucket: "myboard-f1efe.appspot.com",
+        messagingSenderId: "314385531900"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/controllers/login.js"></script>
+    <script src="js/controllers/cadastro.js"></script>
+    <script src="js/controllers/quadro.js"></script>
+</body>
+</html>

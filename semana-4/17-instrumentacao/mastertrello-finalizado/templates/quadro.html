@@ -1,0 +1,17 @@
+<section class="pagina-quadro">
+
+    <h2>Bem vindo, {{usuario.email}} <button class="btn btn-danger" ng-click="logout()">Logout</button></h2>
+    <div>
+        <article ng-repeat="lista in listas">
+            <h4>{{lista.nome}}</h4>
+
+            <p ng-repeat="card in lista.cards track by $index">{{card}}</p>
+
+            <input type="text" placeholder="Novo card..." ng-model="novoCard" ng-keydown="criarCard($event, novoCard)" ng-click="definirListaAtiva(lista)">
+        </article>
+
+        <article>
+            <input type="text" placeholder="Nova lista..." ng-model="novaLista" ng-keydown="criarLista($event, novaLista)">
+        </article>
+    </div>
+</section>

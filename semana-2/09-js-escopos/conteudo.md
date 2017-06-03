@@ -1,4 +1,4 @@
-# Aula 09 - JS: Escopos e Closures
+# JS: Escopos e Closures
 
 - Escopo de variáveis em JS
 - Closures

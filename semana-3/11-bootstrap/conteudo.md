@@ -1,9 +1,4 @@
 # Bootstrap
-- O que é
-- CSS e Componentes
-- Grid
-
-# Referências
-- http://getbootstrap.com
-- http://getbootstrap.com/components/
-- http://getbootstrap.com/css/#grid
+- O que é (http://getbootstrap.com)
+- CSS e Componentes (http://getbootstrap.com/components/)
+- Grid (http://getbootstrap.com/css/#grid)

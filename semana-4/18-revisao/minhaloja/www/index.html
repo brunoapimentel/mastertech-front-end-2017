@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Minha Loja</title>
+    <link rel="stylesheet" href="css/united-bootstrap.min.css">
+</head>
+<body ng-app="minhaloja">
+    <div class="container">
+        <ui-view></ui-view>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCdaX3ETY6_bhha-AbEyglnpn4baZxKIv4",
+        authDomain: "mystore-2abf0.firebaseapp.com",
+        databaseURL: "https://mystore-2abf0.firebaseio.com",
+        projectId: "mystore-2abf0",
+        storageBucket: "mystore-2abf0.appspot.com",
+        messagingSenderId: "198305763654"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script src="js/app.min.js"></script>
+</body>
+</html>
